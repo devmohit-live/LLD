@@ -2,6 +2,8 @@ package com.devmohitlive.lld.strategy.payment.handlers;
 
 import com.devmohitlive.lld.strategy.payment.PaymentMethod;
 import com.devmohitlive.lld.strategy.payment.PaymentStatus;
+import com.devmohitlive.lld.strategy.payment.dto.IPaymentRequest;
+import com.devmohitlive.lld.strategy.payment.dto.UPIPaymentRequest;
 import com.devmohitlive.lld.strategy.payment.vendors.UPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,11 +16,16 @@ public class UPIPaymentHandler implements IPaymentHandler{
     private final PaymentMethod paymentMethod = PaymentMethod.UPI;
 
 
-    @Override
-    public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {
+    private PaymentStatus pay(UPIPaymentRequest upiPaymentRequest, double amount) {
         System.out.println("UPIPaymentHandler pay called");
-        return this.upi.pay(upiAddress, amount);
+        return this.upi.pay(upiPaymentRequest.getUpiId(), amount);
     }
+
+    @Override
+    public PaymentStatus pay(IPaymentRequest paymentRequest, double amount) {
+        return this.pay((UPIPaymentRequest) paymentRequest, amount);
+    }
+
     @Override
     public boolean isValidPaymentMethod(PaymentMethod paymentMethod) {
         return getPaymentMethod() == paymentMethod;

@@ -1,5 +1,8 @@
 package com.devmohitlive.lld.strategy.payment;
 
+import com.devmohitlive.lld.strategy.payment.dto.CreditCardPaymentRequest;
+import com.devmohitlive.lld.strategy.payment.dto.PaytmPaymentRequest;
+import com.devmohitlive.lld.strategy.payment.dto.UPIPaymentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,13 +22,16 @@ public class Main implements CommandLineRunner {
     public void run(String... args) throws Exception {
         PaymentStatus status;
         //card
-        status = payment.pay(PaymentMethod.CREDIT_CARD,"1234 5678 9012 3456", "123", "12/23", null,null,1000);
+        CreditCardPaymentRequest creditCardPaymentRequest = new CreditCardPaymentRequest("1234 5678 9012 3456", "mohit","123", "12/23");
+        status = payment.pay(PaymentMethod.CREDIT_CARD,creditCardPaymentRequest,1000);
         System.out.println(status);
         //upi
-        status = payment.pay(PaymentMethod.UPI,null,null, null, "mohit@upi", null,1000);
+        UPIPaymentRequest upiPaymentRequest = new UPIPaymentRequest("mohit@upi");
+        status = payment.pay(PaymentMethod.UPI,upiPaymentRequest,1000);
         System.out.println(status);
         // paytm
-        status = payment.pay(PaymentMethod.PAYTM,null,null, null, null,"9999999999",1000);
+        PaytmPaymentRequest paytmPaymentRequest = new PaytmPaymentRequest("9999999999");
+        status = payment.pay(PaymentMethod.PAYTM,paytmPaymentRequest,1000);
         System.out.println(status);
     }
 }
