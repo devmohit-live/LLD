@@ -9,4 +9,4 @@
 
 | Pattern  | Final Tag | Versions  |
 |:---------|:---------:|:---------:|
-| **Strategy** |   True    | ```[]```  |
+| **Strategy** |       | ```[]```  |
