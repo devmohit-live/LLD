@@ -1,27 +1,23 @@
 package com.devmohitlive.lld.strategy.payment;
 
 
-import com.devmohitlive.lld.strategy.payment.vendors.CreditCard;
-import com.devmohitlive.lld.strategy.payment.vendors.DebitCard;
-import com.devmohitlive.lld.strategy.payment.vendors.Paytm;
-import com.devmohitlive.lld.strategy.payment.vendors.UPI;
+import com.devmohitlive.lld.strategy.payment.handlers.*;
 
-public class PaymentService {
-    public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount){
-        if(cardNumber != null && cvv != null && expiryDate != null){
-            // Credit card payment
-            return new CreditCard().pay(cardNumber, cvv, expiryDate, amount);
-        } else if(cardNumber != null && cvv != null){
-            // Debit card payment
-            return new DebitCard().pay(cardNumber, cvv, expiryDate, amount);
-        } else if(upiAddress != null){
-            // UPI payment
-            return new UPI().pay(upiAddress, amount);
-        } else if(paytmNumber != null){
-            // Paytm payment
-            return new Paytm().pay(paytmNumber, amount);
-        } else {
-            return PaymentStatus.FAILED;
-        }
+public class PaymentService{
+    IPaymentHandler paymentHandler;
+    public PaymentStatus pay(PaymentMethod paymentMethod, String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) throws IllegalArgumentException{
+       if (paymentMethod == PaymentMethod.CREDIT_CARD){
+           paymentHandler = new CreditCardPaymentHandler();
+         }else if (paymentMethod == PaymentMethod.PAYTM){
+           paymentHandler = new PaytmPaymentHandler();
+        }else if (paymentMethod == PaymentMethod.UPI) {
+           paymentHandler = new UPIPaymentHandler();
+       }else if (paymentMethod == PaymentMethod.DEBIT_CARD){
+           paymentHandler = new DebitCardPaymentHandler();
+       }else {
+           throw new IllegalArgumentException("Invalid Payment Method");
+       }
+
+        return paymentHandler.pay(cardNumber, cvv, expiryDate, upiAddress, paytmNumber, amount);
     }
 }
