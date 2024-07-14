@@ -8,15 +8,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UPIPaymentHandler implements IPaymentHandler{
+    @Autowired
     private UPI upi;
 
     public UPIPaymentHandler() {
-        System.out.println("UPIPaymentHandler constructor called");
         this.upi = new UPI();
     }
 
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {
-        return upi.pay(upiAddress, amount);
+        System.out.println("UPIPaymentHandler pay called");
+        return this.upi.pay(upiAddress, amount);
     }
 }

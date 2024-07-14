@@ -8,15 +8,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DebitCardPaymentHandler implements IPaymentHandler {
+    @Autowired
     DebitCard debitCard;
 
     public DebitCardPaymentHandler() {
-        System.out.println("DebitCardPaymentHandler constructor called");
         this.debitCard = new DebitCard();
     }
 
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {
-        return debitCard.pay(cardNumber, cvv, expiryDate, amount);
+        System.out.println("DebitCardPaymentHandler pay called");
+        return this.debitCard.pay(cardNumber, cvv, expiryDate, amount);
     }
 }

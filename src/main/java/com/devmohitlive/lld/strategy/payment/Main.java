@@ -1,5 +1,6 @@
 package com.devmohitlive.lld.strategy.payment;
 
+
 public class Main {
     public static void main(String[] args) {
         PaymentStatus status;

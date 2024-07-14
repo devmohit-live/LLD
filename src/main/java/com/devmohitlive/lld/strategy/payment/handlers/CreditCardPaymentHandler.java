@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 public class CreditCardPaymentHandler implements IPaymentHandler {
     private CreditCard creditCard;
     public CreditCardPaymentHandler(){
-        System.out.println("CreditCardPaymentHandler constructor called");
         this.creditCard = new CreditCard();
     }
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {
+        System.out.println("CreditCardPaymentHandler pay called");
         return this.creditCard.pay(cardNumber, cvv, expiryDate, amount);
     }
 }

@@ -10,12 +10,12 @@ public class PaytmPaymentHandler implements IPaymentHandler{
     Paytm paytm;
 
     public PaytmPaymentHandler() {
-        System.out.println("PaytmPaymentHandler constructor called");
         this.paytm = new Paytm();
     }
 
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {
-        return paytm.pay(paytmNumber, amount);
+        System.out.println("PaytmPaymentHandler pay called");
+        return this.paytm.pay(paytmNumber, amount);
     }
 }
