@@ -1,7 +1,7 @@
 package com.devmohitlive.lld.strategy.payment.handlers;
 
-import com.devmohitlive.lld.strategy.payment.PaymentMethod;
-import com.devmohitlive.lld.strategy.payment.PaymentStatus;
+import com.devmohitlive.lld.strategy.payment.dto.PaymentMethod;
+import com.devmohitlive.lld.strategy.payment.dto.PaymentStatus;
 import com.devmohitlive.lld.strategy.payment.dto.CreditCardPaymentRequest;
 import com.devmohitlive.lld.strategy.payment.dto.DebitCardPaymentRequest;
 import com.devmohitlive.lld.strategy.payment.dto.IPaymentRequest;

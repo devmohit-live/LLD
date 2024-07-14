@@ -1,6 +1,6 @@
 package com.devmohitlive.lld.strategy.payment.vendors;
 
-import com.devmohitlive.lld.strategy.payment.PaymentStatus;
+import com.devmohitlive.lld.strategy.payment.dto.PaymentStatus;
 import org.springframework.stereotype.Component;
 
 @Component

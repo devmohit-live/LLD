@@ -1,4 +1,4 @@
-package com.devmohitlive.lld.strategy.payment;
+package com.devmohitlive.lld.strategy.payment.dto;
 
 public enum PaymentStatus {
     IN_PROGRESS,
