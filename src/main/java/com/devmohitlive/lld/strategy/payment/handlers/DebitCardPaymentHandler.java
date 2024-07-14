@@ -1,19 +1,16 @@
 package com.devmohitlive.lld.strategy.payment.handlers;
 
-import com.devmohitlive.lld.strategy.payment.dto.PaymentMethod;
-import com.devmohitlive.lld.strategy.payment.dto.PaymentStatus;
-import com.devmohitlive.lld.strategy.payment.dto.CreditCardPaymentRequest;
-import com.devmohitlive.lld.strategy.payment.dto.DebitCardPaymentRequest;
-import com.devmohitlive.lld.strategy.payment.dto.IPaymentRequest;
+import com.devmohitlive.lld.strategy.payment.dto.*;
 import com.devmohitlive.lld.strategy.payment.vendors.DebitCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DebitCardPaymentHandler implements IPaymentHandler {
+public class DebitCardPaymentHandler implements CardPaymentHandler {
     @Autowired
     private DebitCard debitCard;
     private final PaymentMethod paymentMethod = PaymentMethod.DEBIT_CARD;
+    private final Quota quota = Quota.NORMAL;
 
 
 
@@ -29,8 +26,8 @@ public class DebitCardPaymentHandler implements IPaymentHandler {
     }
 
     @Override
-    public boolean isValidPaymentMethod(PaymentMethod paymentMethod) {
-        return getPaymentMethod() == paymentMethod;
+    public boolean isValidPaymentMethod(User user, PaymentMethod paymentMethod) {
+        return getPaymentMethod() == paymentMethod && user.getQuota() == this.quota;
     }
 
     @Override

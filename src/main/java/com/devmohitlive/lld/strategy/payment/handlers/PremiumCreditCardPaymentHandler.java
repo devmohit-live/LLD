@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreditCardPaymentHandler implements CardPaymentHandler {
+public class PremiumCreditCardPaymentHandler implements CardPaymentHandler {
     @Autowired
     private CreditCard creditCard;
     private final PaymentMethod paymentMethod = PaymentMethod.CREDIT_CARD;
-    private final Quota quota = Quota.NORMAL;
+    private final Quota quota = Quota.PREMIUM;
 
     @Override
     public PaymentStatus pay(IPaymentRequest paymentRequest, double amount) {
@@ -19,7 +19,7 @@ public class CreditCardPaymentHandler implements CardPaymentHandler {
     }
 
     private PaymentStatus pay(CreditCardPaymentRequest paymentRequest, double amount){
-        System.out.println("CreditCardPaymentHandler pay called");
+        System.out.println("Premium CreditCardPaymentHandler pay called");
         return this.creditCard.pay(paymentRequest.getCardNumber(), paymentRequest.getCvv(), paymentRequest.getExpiryDate(), amount);
     }
 
