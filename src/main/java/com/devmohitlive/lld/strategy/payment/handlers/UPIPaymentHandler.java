@@ -13,9 +13,6 @@ public class UPIPaymentHandler implements IPaymentHandler{
     private UPI upi;
     private final PaymentMethod paymentMethod = PaymentMethod.UPI;
 
-    public UPIPaymentHandler() {
-        this.upi = new UPI();
-    }
 
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {

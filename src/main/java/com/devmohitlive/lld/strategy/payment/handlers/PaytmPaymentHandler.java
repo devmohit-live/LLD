@@ -11,9 +11,6 @@ public class PaytmPaymentHandler implements IPaymentHandler{
     @Autowired
     private Paytm paytm;
     private final PaymentMethod paymentMethod = PaymentMethod.PAYTM;
-    public PaytmPaymentHandler() {
-        this.paytm = new Paytm();
-    }
 
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {

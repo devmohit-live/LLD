@@ -13,9 +13,6 @@ public class DebitCardPaymentHandler implements IPaymentHandler {
     private final PaymentMethod paymentMethod = PaymentMethod.DEBIT_CARD;
 
 
-    public DebitCardPaymentHandler() {
-        this.debitCard = new DebitCard();
-    }
 
     @Override
     public PaymentStatus pay(String cardNumber, String cvv, String expiryDate, String upiAddress, String paytmNumber, double amount) {
