@@ -7,6 +7,6 @@
   - Final version of the use-case will have a tag associated with it.
 
 
-| Pattern  | Final Tag | Versions  |
-|:---------|:---------:|:---------:|
-| **Strategy** |   True    | ```[]```  |
+| Pattern  |   Final Tag    |                         Versions                          |
+|:---------|:--------------:|:---------------------------------------------------------:|
+| **Strategy** | `strategy.v1`  | ```[basic-payment, payment-validity, payment-request ]``` |
