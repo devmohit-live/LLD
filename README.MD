@@ -12,3 +12,13 @@
 | **Strategy** | `strategy.v1` | ```[basic-payment, payment-validity, payment-request ]``` |
 | **Command**  |      ` `      |                 ```[basic-command,  ]```                  |
 
+
+
+
+
+## Designs
+
+| Name                 |    Final Tag     |                    Versions / Branches                    |
+|:---------------------|:----------------:|:---------------------------------------------------------:|
+| **Snake and Ladder** | ![](strategy.v1) | ```[basic-payment, payment-validity, payment-request ]``` |
+|                      |                  |                                  |
