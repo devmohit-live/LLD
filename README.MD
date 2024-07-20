@@ -18,7 +18,7 @@
 
 ## Designs
 
-| Name                 |    Final Tag     |                    Versions / Branches                    |
-|:---------------------|:----------------:|:---------------------------------------------------------:|
-| **Snake and Ladder** | ![](strategy.v1) | ```[basic-payment, payment-validity, payment-request ]``` |
-|                      |                  |                                  |
+| Name                 |                                         Final Tag                                          |                   Versions / Branches                   |
+|:---------------------|:------------------------------------------------------------------------------------------:|:-------------------------------------------------------:|
+| **Snake and Ladder** | ![Basic Snake and Ladder](https://github.com/devmohit-live/LLD/tree/base-snake-and-ladder) |              ```[base-snake-and-ladder]```              |
+|                      |                                                                                            |                                                         |
