@@ -9,7 +9,7 @@
 
 | Pattern      |   Final Tag   |                    Versions / Branches                    |
 |:-------------|:-------------:|:---------------------------------------------------------:|
-| **Strategy** | `strategy.v1` | ```[basic-payment, payment-validity, payment-request ]``` |
+| **Strategy** | [strategy.v1](https://github.com/devmohit-live/LLD/tree/strategy.v1) | ```[basic-payment, payment-validity, payment-request ]``` |
 | **Command**  |      ` `      |                 ```[basic-command,  ]```                  |
 
 
