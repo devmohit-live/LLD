@@ -13,7 +13,7 @@ public class Dice {
     }
 
     public int roll() {
-        faceValue = random.nextInt(sides+1)+1;
+        faceValue = random.nextInt(6) + 1;;
         System.out.println("Rolling Dice : "+ faceValue);
         return faceValue;
     }

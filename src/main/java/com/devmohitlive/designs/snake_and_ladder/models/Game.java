@@ -8,10 +8,10 @@ public class Game {
     private BoardManager boardManager;
     private Dice dice;
     private List<Player> players;
-    private List<SnakeLadder> snakeLadders;
+    private List<IGameEntity> snakeLadders;
     private int currentPlayerIndex;
 
-    public Game(BoardManager boardManager, Dice dice, List<Player> players, List<SnakeLadder> snakeLadders) {
+    public Game(BoardManager boardManager, Dice dice, List<Player> players, List<IGameEntity> snakeLadders) {
         this.boardManager = boardManager;
         this.dice = dice;
         this.players = players;
@@ -33,11 +33,8 @@ public class Game {
         System.out.println("Player "+ player+" is going to roll the dice");
         int netVal = getValidDiceMove();
         boardManager.movePlayerAcrossTheBoard(player,netVal);
-        for(SnakeLadder snakeLadder : snakeLadders){
-           if(player.getPosition().equals(snakeLadder.start)){
-               snakeLadder.apply(player);
-//               player.move(snakeLadder.end);
-           }
+        for(IGameEntity snakeLadder : snakeLadders){
+            snakeLadder.apply(player);
         }
         try {
             sleep(1000);

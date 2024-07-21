@@ -11,6 +11,7 @@ public class BoardManager {
         this.board = board;
         this.start = start;
         this.end = end;
+        System.out.println("End is "+ getCellValue(end));
     }
 
     public Position getEnd() {
@@ -25,24 +26,25 @@ public class BoardManager {
         return start;
     }
 
-    private int getCellValue(Position position) {
-        int r = (position.getX() + ORIGIN_SHIFT_FACTOR) ;
-        int c = (position.getY() + ORIGIN_SHIFT_FACTOR) ;
-        return r * this.board.getColumns() + c;
+    private long getCellValue(Position position) {
+       return position.getId();
     }
 
     public void movePlayerAcrossTheBoard(Player player, int moveVal){
         Position oldPosition = player.getPosition();
-        int oldVal = getCellValue(oldPosition);
-        int newVal = moveVal + oldVal;
+        long oldVal = getCellValue(oldPosition);
+        long newVal = moveVal + oldVal;
         if (validateMove(newVal)){
-            Position newPosition = new Position(newVal / board.getColumns(), newVal % board.getColumns());
+            Position newPosition = new Position((int)newVal / board.getColumns(), (int)newVal % board.getColumns());
             player.move(newPosition);
+            System.out.println("Moved to "+newVal);
+        }else{
+            System.out.println("No movement for the Player "+player+" Stayed at "+oldVal);
         }
     }
 
-    private boolean validateMove(int nextVal){
-        return board.getRows() * board.getColumns() >= nextVal;
+    private boolean validateMove(long nextVal){
+        return (long) board.getRows() * board.getColumns() >= nextVal;
     }
 
 }

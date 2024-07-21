@@ -24,11 +24,12 @@ public class Board {
         this.columns = columns;
         this.cells = new ArrayList<>(this.rows * this.columns);
         initBoard();
+        System.out.println(cells);
     }
     private void initBoard() {
-        for (int i = 0; i < this.rows; i++) {
-            for (int j = 0; j < this.columns; j++) {
-                this.cells.add(new Position(i, j));
+        for (int i = 1; i <= this.rows; i++) {
+            for (int j = 1; j <= this.columns; j++) {
+                this.cells.add(new Position(i*columns + j));
             }
         }
     }
